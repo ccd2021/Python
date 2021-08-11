@@ -1,0 +1,15 @@
+﻿pip list					: muestra en la consola los paquetes y version instaladas en su momento.
+deactivate					: desactiva en la consola el entorno virtual activado.
+pip3 list vs pip list		:
+Windows call myEnvironments/py3Env/Scripts/activate): comando que activa el entorno virtual que se necesita.
+pip install Django==1.11.9	:	  Instala Django con la version del paquete indicado 1.11.9
+pip freeze					: Permite visualizar las versiones de los paquetes instalados.
+pip freeze > requerim.txt	: deje en un archivo "requerim.txt" los paquetes instalados con su version indicada.
+pip uninstall Django		: remueve el paquete instalado en este caso Django.
+pip show Django				: paquete no encontrado
+pip search Flask			: Muestra error de runtime, no logra carga de este paquete
+
+
+
+	
+
