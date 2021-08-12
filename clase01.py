@@ -18,6 +18,8 @@ print(saludo("carlos Alberto ..."))
 def mayor_de_edad(edad, nombre):
     if (edad >= 18):
         print("{}, Eres mayor de edad".format(nombre))
+    elif (edad == 10):
+        return("edad es 10")
     else:
         annios_faltantes = 18 - edad
         print("{}, Te faltan : {} años para ser mayor de edad ".format(
@@ -63,3 +65,44 @@ for k in menu.values():
 
 print(menu['jueves'][0])
 print(menu['jueves'][1])
+
+
+print("ejercicio 1")
+
+#n,m = 5,6
+
+n = 5
+m = 6
+
+
+def imprime_matriz(num_filas, num_cols):
+    for i in range(0, num_filas - 1):
+        print("*" * num_cols)
+
+
+imprime_matriz(n, m)
+
+print("ejercicio 2")
+
+
+def numeros_primos(inicio, fin):
+    contador = inicio
+    num_primos = 0
+    # contar desde n a m
+    while (contador <= fin):
+        divisibles = 0
+        i = 1
+        while (i <= contador):
+            if (contador % i == 0):
+                divisibles += 1
+            i += 1
+        if divisibles == 2:
+            num_primos += 1
+        contador += 1
+    print("Entre {} y {} hay {} numeros primos".format(inicio, fin, num_primos))
+
+
+numeros_primos(1, 20)
+
+print("")
+print("ejercicio 3")
