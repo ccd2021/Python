@@ -12,6 +12,7 @@ def saludo(nombre):
     return("Hola {}".format(nombre))
 
 
+# Invocando una funcion saludo
 print(saludo("carlos Alberto ..."))
 
 
@@ -42,32 +43,49 @@ print(suma_producto(10, 5))
 
 
 # Arreglos
-colores = ['1', '2', '3']
+print("")
+print("Arreglos")
 
+colores = ['rojo', 'verde', 'azul', 12]
+print(" ")
+print("ej 1")
 for color in colores:
     print(color)
 
+print(" ")
+print("ej 2")
+for i in colores:
+    print(i)
+
 
 # Diccionarios
+print("")
+print("Diccionarios")
 
 menu = {'lunes': 'pasta', 'martes': 'pizza',
         'miercoles': 'pescado', 'jueves': ['vegetales', 'papa']}
+
+# aca solo muestra los indices del diccionario.
+print(" ")
+print("ej 1")
 print(menu.keys())
-print('')
 
+# aca solo muestra el valor del indice lunes, en este caso pasta
+print(" ")
+print("ej 2")
 print(menu['lunes'])
-print('')
 
-
+# aca muestra los valores del diccionario
+print(" ")
+print("ej 3")
 for k in menu.values():
     print(k)
 
-
+# aca muestra el valor de un arreglo q esta en el jueves.
+print(" ")
+print("ej 4")
 print(menu['jueves'][0])
 print(menu['jueves'][1])
-
-
-print("ejercicio 1")
 
 #n,m = 5,6
 
@@ -80,16 +98,16 @@ def imprime_matriz(num_filas, num_cols):
         print("*" * num_cols)
 
 
+print(" ")
+print("ejercicio 5")
 imprime_matriz(n, m)
-
-print("ejercicio 2")
 
 
 def numeros_primos(inicio, fin):
     contador = inicio
     num_primos = 0
     # contar desde n a m
-    while (contador <= fin):
+    while (contador <= fin):  # desde inicio a fin
         divisibles = 0
         i = 1
         while (i <= contador):
@@ -102,7 +120,6 @@ def numeros_primos(inicio, fin):
     print("Entre {} y {} hay {} numeros primos".format(inicio, fin, num_primos))
 
 
+print(" ")
+print("ejercicio 6")
 numeros_primos(1, 20)
-
-print("")
-print("ejercicio 3")
