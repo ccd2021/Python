@@ -18,7 +18,7 @@ class Instructor(Persona):
         return("Mi nombre es {} y soy instructor de {}".format(self.nombre, self.curso))
 
 
-class Estudiante(persona):
+class Estudiante(Persona):
     def __init__(self, nombre, email, cohort):
         super().__init__(nombre, email)
         self.cohort = cohort
