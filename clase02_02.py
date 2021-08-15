@@ -4,7 +4,7 @@ class Persona():
         self.email = email
 
     def saludar(self):
-        print(f"Hola mi es {self.nombre}")
+        print(f"Hola mi nombre es {self.nombre}")
         #print("Hola mi nombre es {}".format(self.nombre))
 
 
