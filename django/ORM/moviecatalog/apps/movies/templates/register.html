@@ -1,0 +1,11 @@
+<h1>Registro de Usuario</h1>
+
+<form action="/register_user" method="POST">
+  {% csrf_token %}
+  <p>Nombre: <input name="name" type="text" /></p>
+  <p>Apellido: <input name="lastname" type="text" /></p>
+  <p>email: <input name="email" type="text" /></p>
+  <p>Password: <input name="password" type="text" /></p>
+
+  <button type="submit">registrarse ahora</button>
+</form>
