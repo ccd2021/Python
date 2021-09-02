@@ -177,3 +177,54 @@ for elem in lista:
             v = str(v)
         v_linea = v_linea + k + '-' + v + ', '
     print(v_linea)
+
+
+print(" ")
+print("Ordenamiento de burbuja")
+
+
+def bubbleSort(lista):
+    #print('came here')
+    count = 0
+    for j in range(len(lista)-1):
+        #print("\n\n", "-" * 100, "Iteration", j)
+        for i in range(len(lista)-1-j):
+            #print("\n", "*"*50, "\nindex", i, "value", lista[i])
+            #print("comparing", lista[i], lista[i+1])
+
+            count += 1
+            if lista[i] > lista[i+1]:
+                lista[i], lista[i+1] = lista[i+1], lista[i]
+                #print("swapped", lista[i], lista[i+1])
+                #print("lista es ahora", lista)
+            # else:
+                #print("no need to swap", lista[i], lista[i+1])
+                #print("lista final queda asi:", lista)
+    print("# de evaluaciones:", count)
+    return lista
+
+
+arr = [1, 5, 3, 2, 0, 8, 2, 5, 2]*2
+print(bubbleSort(arr))
+
+print(" ")
+print("Orden de seleccion")
+
+# Falta por desarrollar
+
+
+print(" ")
+print("Operador ternario")
+
+# tradicional
+stacks = 5
+if stacks >= 3:
+    print('Coding Dojo')
+else:
+    print('You are not Coding Dojo!')
+# ternario
+print('Coding Dojo' if stacks >= 3 else 'You are not Coding Dojo!')
+
+
+print(" ")
+print("Lambda...")
