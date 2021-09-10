@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Courses administration</title>
+</head>
+<body>
+    <h1>Professor profile</h1>
+    <p>Full Name: {{name}}</p>
+    <a href='/logout/'>Logout</a>
+
+    <section>
+        <h2>Available courses</h2>
+        <table>
+            <tr>
+                <th>Course Code</th>
+                <th>Course Name</th>
+                <th>N° enrolled sutdents</th>
+            </tr>
+            {% for curso in cursos %}
+            <tr>
+                <!--Acá va el código del curso-->
+                <td>{{curso.cod_course}}</td>
+                <!--Nombre del curso-->
+                <td>{{curso.course_name}}</td>
+                <!--Número de estudiantes inscritos vs el número máximo-->
+                <td>{{curso.max_students}}</td>
+            </tr>  
+            {% endfor %}
+        </table>
+    </section>
+    <a href='/create_course/'>Create new course?</a>
+</body>
+</html>

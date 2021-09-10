@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administration courses</title>
+</head>
+<body>
+    <h1>Student profile</h1>
+    <p>Full Name: </p>
+
+    <section>
+        <h2>Enrolled courses: </h2>
+        <table>
+            <tr>
+                <th>Course Code</th>
+                <th>Course Name</th>
+                <th>N° enrolled students</th>
+            </tr>
+            <!--El resto de la tabla se llena con jinja con la información de los cursos ya inscritos-->
+            {% for curso in cursos %}
+            <tr>
+                <td>{{curso.cod_course}} </td>
+                <td>{{curso.course_name}} </td>
+                <td>{{curso.n_students}}/{{curso.max_students}} </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </section>
+
+    
+    
+    <section>
+        <h2>Available courses</h2>
+        <table>
+            <tr>
+                <th>Course Code</th>
+                <th>Course Name</th>
+                <th>N° enrolled students</th>
+                <th>Enroll</th>
+            </tr>
+            {% for curso in available_courses %}
+            <tr>
+                <form action="/student/" method="post" >
+                    {% csrf_token %}
+                    <td>{{curso.cod_course}}</td>
+                    <td>{{curso.course_name}}</td>
+                    <td>{{curso.students.count}}</td>
+                    <input type="hidden" value="{{curso.cod_course}}" name="cod_course">    
+                    <td><input type="submit"></td>
+                </form>
+            </tr>
+            {% endfor %}
+        </table>
+        <!--El resto de la tabla se llena con jinja-->
+    </section>
+</body>
+</html>
