@@ -32,7 +32,7 @@ class User2:
         return self
 
     # Muestra saldo
-    def display_user_balance(self, amount):
+    def display_user_balance(self):
         self.account_balance
         print(self.name, ' Saldo cuenta es:', self.account_balance)
         return self
@@ -109,8 +109,52 @@ usr6 = User2("Pamela Fuentes", "ccc@ccd.cl")
 print(usr1.name, ", ", usr2.name, ", ", usr3.name)
 
 usr4.make_deposit(10000).make_deposit(20000).make_deposit(
-    30000).make_withdrawal(50000).display_user_balance(0)
+    30000).make_withdrawal(50000).display_user_balance()
 usr5.make_deposit(25000).make_deposit(25000).make_withdrawal(
-    48000).make_withdrawal(1).display_user_balance(0)
+    48000).make_withdrawal(1).display_user_balance()
 usr6.make_deposit(25000).make_withdrawal(5000).make_withdrawal(
-    5000).make_withdrawal(3000).display_user_balance(0)
+    5000).make_withdrawal(3000).display_user_balance()
+
+
+print("")
+print("Clase bankAccount")
+
+
+class BankAccount:
+    def __init__(self, int_rate, balance):
+        self.int_rate = int_rate
+        self.balance = balance
+
+    def deposit(self, amount):
+        self.balance += amount
+
+        return self
+
+    def withdraw(self, amount):
+
+        if (self.balance < amount):
+            print("Fondos insuficientes: cobrar una tarifa de $ 5")
+            self.balance -= 5
+        else:
+            self.balance -= amount
+
+        return self
+
+    def display_account_info(self):
+        self.balance
+        print(' Saldo es: $', self.balance)
+        return self
+
+    def yield_interest(self):
+        if (self.balance > 0):
+            self.balance = self.balance * (1+self.int_rate)
+        return self
+
+
+cuenta1 = BankAccount(0.10, 50000)
+cuenta2 = BankAccount(0.50, 25000)
+
+cuenta1.deposit(1000).deposit(2000).deposit(3000).withdraw(
+    6000).yield_interest().display_account_info()
+cuenta2.deposit(5000).deposit(2500).withdraw(15000).withdraw(10000).withdraw(
+    7000).withdraw(1000).yield_interest().display_account_info()
