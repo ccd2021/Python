@@ -1,3 +1,6 @@
+import urllib.request
+
+
 class User1:		                    # declara una clase y dale el nombre User
     def __init__(self):
         self.name = "Michael"
@@ -158,3 +161,35 @@ cuenta1.deposit(1000).deposit(2000).deposit(3000).withdraw(
     6000).yield_interest().display_account_info()
 cuenta2.deposit(5000).deposit(2500).withdraw(15000).withdraw(10000).withdraw(
     7000).withdraw(1000).yield_interest().display_account_info()
+
+
+print("")
+print("Asociación entre clases")
+
+
+class User3:
+    def __init__(self, name, email):
+        self.name = name
+        self.email = email
+        self.account = BankAccount(
+            int_rate=0.02, balance=0)  # agregó esta línea
+
+
+print("")
+print("Asignatura: usuarios con cuentas bancarias")
+
+
+class User:
+    # other methods
+    def make_deposit(self, amount):
+        # hmmm ... la clase de usuario ya no tiene un atributo account_balance
+        self.account_balance += amount
+
+
+print("")
+print("Modulos y paquetes")
+
+# importa
+response = urllib.request.urlopen("http://www.codingdojo.com")
+html = response.read()
+print(html)
