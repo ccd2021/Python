@@ -99,7 +99,6 @@ res_sub = p1.subtract(1000).subtract(
 print(res_add, res_sub)
 
 
-'''
 print("")
 print("Listas Vinculadas...")
 
@@ -152,10 +151,183 @@ class SList:
         runner.next = new_node
 
 
+'''
 print("")
 print("Recorriendo una lista...")
 
 my_list = SList()  # crear una nueva instancia de una lista
+
 my_list.add_to_front("are").add_to_front(
     "Linked lists").add_to_back("fun!").print_values()
 '''
+
+print("")
+print("Herencia...")
+
+'''
+class CheckingAccount:
+    def __init__(self, int_rate, balance=0):
+        self.int_rate = int_rate
+        self.balance = balance
+
+    def deposit(self, amount):
+        # code
+        pass
+
+    def withdraw(self, amount):
+        # code
+        pass
+
+    def write_check(self, amount):
+        # code
+        pass
+
+    def display_account_info(self):
+        # code
+        pass
+
+
+class RetirementAccount:
+    def __init__(self, int_rate, is_roth, balance=0):
+        self.int_rate = int_rate
+        self.balance = balance
+        self.is_roth = is_roth
+
+    def deposit(self, amount):
+        # código - evaluar impuestos si es necesario
+        pass
+
+    def withdraw(self, amount):
+        # código - evaluar impuestos si es necesario
+        pass
+
+    def display_account_info(self):
+        # codigo
+        pass
+'''
+
+'''
+class CheckingAccount(BankAccount):
+    pass
+
+
+class RetirementAccount(BankAccount):
+    pass
+'''
+
+
+class BankAccount:
+    def __init__(self, int_rate, balance=0):
+        self.int_rate = int_rate
+        self.balance = balance
+
+    def withdraw(self, amount):
+        # if (self.balance - amount) > 0:
+        #    self.balance -= amount
+        # else:
+        #    print("INSUFFICIENT FUNDS")
+        # return self
+
+        if (self.balance - amount) > 0:
+            self.balance -= amount
+        else:
+            print("INSUFFICIENT FUNDS")
+        return self
+
+
+class RetirementAccount(BankAccount):
+    def __init__(self, int_rate, is_roth, balance=0):
+        super().__init__(int_rate, balance)
+        self.is_roth = is_roth
+
+    def withdraw(self, amount, is_early):
+        # if is_early:
+        #    amount = amount * 1.10
+        # if (self.balance - amount) > 0:
+        #    self.balance -= amount
+        # else:
+        #    print("INSUFFICIENT FUNDS")
+        # return self
+
+        if is_early:
+            amount = amount * 1.10
+        super().withdraw(amount)
+        return self
+
+
+print("")
+print("Anulacion y polimorfismo...")
+
+
+print("")
+print("Anulacion...")
+
+
+class Parent:
+    def method_a(self):
+        print("invocando PARENT method_a!")
+
+
+class Child(Parent):
+    def method_a(self):
+        print("invocando CHILD method_a!")
+
+
+dad = Parent()
+son = Child()
+dad.method_a()
+son.method_a()  # ¡nota que esto anula el método Parent!
+
+
+print("")
+print("polimorfismo...")
+# Usaremos la clase Person para demostrar el polimorfismo
+# en el que varias clases heredan de la misma clase pero se comportan de diferentes maneras
+
+
+class Person:
+    def pay_bill(self):
+        raise NotImplementedError
+
+# Millionaire hereda de Persona
+
+
+class Millionaire(Person):
+    def pay_bill(self):
+        print("Here you go! Keep the change!")
+
+# Grad Student también hereda de la clase Persona
+
+
+class GradStudent(Person):
+    def pay_bill(self):
+        print("Can I owe you ten bucks or do the dishes?")
+
+
+print("")
+print("Asignatura: Zoo..")
+
+
+class Zoo:
+    def __init__(self, zoo_name):
+        self.animals = []
+        self.name = zoo_name
+
+    def add_lion(self, name):
+        self.animals.append(Lion(name))
+
+    def add_tiger(self, name):
+        self.animals.append(Tiger(name))
+
+    def print_all_info(self):
+        print("-"*30, self.name, "-"*30)
+        for animal in self.animals:
+            animal.display_info()
+
+
+zoo1 = Zoo("John's Zoo")
+zoo1.add_lion("Nala")
+zoo1.add_lion("Simba")
+zoo1.add_tiger("Rajah")
+zoo1.add_tiger("Shere Khan")
+zoo1.print_all_info()
