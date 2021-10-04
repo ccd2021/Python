@@ -19,8 +19,8 @@ def register_user(request):
         lastname = request.POST['lastname']
         correo_electronico = request.POST['email']
         password = request.POST['password']
-        new_user = User.objects.create(name=name, lastname=lastname,
-                                       email=correo_electronico, password=password)
+        new_user = User.objects.create(
+            name=name, lastname=lastname, email=correo_electronico, password=password)
 
         print('usuario creado:', new_user.name)
         request.session['username'] = new_user.name
